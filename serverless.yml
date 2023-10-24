@@ -1,0 +1,38 @@
+service: tokenizacion-culqi
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  region: eu-central-1
+  runtime: nodejs18.x
+  profile: accountaws
+  environment: ${file(./src/environment/${opt:stage,'dev'}.json)}
+
+functions:
+  generateToken:
+    handler: build/index.generateToken
+    memorySize: 512
+    timeout: 180
+    maximumEventAge: 3600
+    maximumRetryAttempts: 0
+    events:
+      - httpApi:
+          path: /tokens
+          method: post
+  getDataFromToken:
+    handler: build/index.getDataFromToken
+    memorySize: 512
+    timeout: 180
+    maximumEventAge: 3600
+    maximumRetryAttempts: 0
+    events:
+      - httpApi:
+          path: /card
+          method: post
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 5000

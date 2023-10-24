@@ -1,0 +1,11 @@
+{
+  "STAGE": "development",
+  "SECRET_ENCRYPT": "dev-w74pGY@Wg7@m",
+  "REDIS_PORT": 5002,
+  "PSQL_HOST": "localhost",
+  "PSQL_PORT": 5001,
+  "PSQL_USER": "user",
+  "PSQL_PASS": "pass",
+  "PSQL_DB": "db",
+  "minutesTimeToken": 15
+}

@@ -1,0 +1,5 @@
+{
+  "watch": ["src"],
+  "ext": ".ts",
+  "exec": "npx tsc && sls offline start --stage dev --reloadHandler"
+}

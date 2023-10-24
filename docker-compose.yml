@@ -1,0 +1,36 @@
+version: '3'
+services:
+
+  db_psql:
+    image: postgres:13
+    container_name: db_psql
+    restart: unless-stopped
+    tty: true
+    ports:
+      - 5001:5432
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: "pass"
+      POSTGRES_DB: db
+      POSTGRES_HOST_AUTH_METHOD: md5
+    volumes:
+      - db_psql:/var/lib/postgresql/data
+
+
+  db_redis:
+    image: redis:7.2.1
+    container_name: db_redis
+    restart: unless-stopped
+    tty: true
+    ports:
+      - 5002:6379
+    volumes:
+      - db_redis:/data
+
+
+#Volumes
+volumes:
+  db_psql:
+    driver: local
+  db_redis:
+    driver: local

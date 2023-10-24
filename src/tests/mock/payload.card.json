@@ -1,0 +1,9 @@
+{
+  "success": {
+    "email": "user@gmail.com",
+    "card_number": "4242424242424242",
+    "cvv": "120",
+    "expiration_year": "2026",
+    "expiration_month": 1
+  }
+}
